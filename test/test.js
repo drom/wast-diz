@@ -25,6 +25,7 @@ describe('diz', function () {
                         var result;
                         try {
                             result = diz(wastData);
+                            console.log(result);
                         } catch (err1) {
                             console.log(err1);
                             throw err1;
