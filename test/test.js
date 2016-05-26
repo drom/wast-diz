@@ -26,22 +26,23 @@ describe('diz', function () {
                         try {
                             result = diz(wastData);
                             console.log(result);
+                            expect(result).not.to.eq('');
                         } catch (err1) {
                             console.log(err1);
                             throw err1;
                         }
 
-                        fs.readFile(
-                            path.resolve(dst, name + '.js'),
-                            'utf8',
-                            function (err2, astData) {
-                                if (err2) { throw err2; }
-                                // expect(jsof.s(result) + '\n').to.equal(astData);
-                                done();
-                            }
-                        );
+                        // fs.readFile(
+                        //     path.resolve(dst, name + '.js'),
+                        //     'utf8',
+                        //     function (err2, astData) {
+                        //         if (err2) { throw err2; }
+                        //         // expect(jsof.s(result) + '\n').to.equal(astData);
+                        //         done();
+                        //     }
+                        // );
                         // expect(jsof.s(result)).to.equal(jsof.s(require('../results/' + name + '.js')));
-                        // done();
+                        done();
                     }
                 );
             });
