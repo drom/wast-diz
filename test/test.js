@@ -3,7 +3,7 @@
 var fs = require('fs'),
     path = require('path'),
     expect = require('chai').expect,
-    diz = require('../lib');
+    lib = require('../lib');
 
 var src = path.resolve(__dirname, '../wasm/');
 var dst = path.resolve(__dirname, '../wast-parser/results/');
@@ -21,10 +21,11 @@ describe('diz', function () {
                     path.resolve(src, name + '.wasm'),
                     function (err, wastData) {
                         if (err) { throw err; }
-
                         var result;
                         try {
-                            result = diz(wastData);
+                            // result = lib.diz(Uint32Array.from(wastData));
+                            // result = lib.diz(Uint8Array.from(wastData));
+                            result = lib.diz(wastData);
                             console.log(result);
                             expect(result).not.to.eq('');
                         } catch (err1) {
