@@ -27,7 +27,7 @@ describe('diz', function () {
                             // result = lib.diz(Uint8Array.from(wastData));
                             result = lib.diz(wastData);
                             console.log(result);
-                            expect(result).not.to.eq('');
+                            expect(result).not.to.eq(undefined);
                         } catch (err1) {
                             console.log(err1);
                             throw err1;
