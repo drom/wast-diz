@@ -26,5 +26,11 @@
   "bugs": {
     "url": "https://github.com/drom/wast-diz/issues"
   },
-  "homepage": "https://github.com/drom/wast-diz#readme"
+  "homepage": "https://github.com/drom/wast-diz#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.11.1",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.5.3"
+  }
 }
