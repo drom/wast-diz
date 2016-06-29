@@ -13,7 +13,8 @@
     "prepublish": "git submodule init && git submodule update --remote && git submodule status",
     "test": "istanbul cover _mocha test",
     "wasm-as": "for f in testsuite/*.wast; do ../../WebAssembly/binaryen/bin/wasm-as $f > wasm/$(basename ${f} .${f##*.}).wasm; done",
-    "sexpr-wasm": "for f in testsuite/*.wast; do ../../WebAssembly/sexpr-wasm-prototype/out/sexpr-wasm --spec $f -o wasm/$(basename ${f} .${f##*.}).json; done"
+    "sexpr-wasm": "for f in testsuite/*.wast; do ../../WebAssembly/sexpr-wasm-prototype/out/sexpr-wasm --spec $f -o wasm/$(basename ${f} .${f##*.}).json; done",
+    "check": "../../WebAssembly/binaryen/bin/asm2wasm lib/bytecode.js"
   },
   "repository": {
     "type": "git",
