@@ -11,10 +11,11 @@
   },
   "scripts": {
     "prepublish": "git submodule init && git submodule update --remote && git submodule status",
-    "test": "istanbul cover _mocha test",
+    "test": "nyc --reporter=html --reporter=text mocha test",
     "wasm-as": "for f in testsuite/*.wast; do ../../WebAssembly/binaryen/bin/wasm-as $f > wasm/$(basename ${f} .${f##*.}).wasm; done",
     "sexpr-wasm": "for f in testsuite/*.wast; do ../../WebAssembly/sexpr-wasm-prototype/out/sexpr-wasm --spec $f -o wasm/$(basename ${f} .${f##*.}).json; done",
-    "check": "../../WebAssembly/binaryen/bin/asm2wasm lib/bytecode.js"
+    "check": "../../WebAssembly/binaryen/bin/asm2wasm lib/bytecode.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -31,14 +32,18 @@
   },
   "homepage": "https://github.com/drom/wast-diz#readme",
   "devDependencies": {
+    "@drom/eslint-config": "^0.7.0",
     "chai": "^3.5.0",
     "eslint": "^3.0.0",
     "fs-extra": "^0.30.0",
-    "istanbul": "^0.4.4",
+    "nyc": "^10.1.2",
     "jsof": "^0.2.1",
-    "mocha": "^2.5.3"
+    "mocha": "^3.5.3"
   },
   "dependencies": {
     "wast-spec": "^0.11.0"
+  },
+  "eslintConfig": {
+    "extends": "@drom/eslint-config/eslint2/node0"
   }
 }
